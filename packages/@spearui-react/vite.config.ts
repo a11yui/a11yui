@@ -1,4 +1,4 @@
-const path = require('path');
+import * as path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -8,8 +8,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/components/index.ts'),
-      name: 'UIReact',
-      fileName: (format) => `ui-react.${format}.js`,
+      name: 'SpearUIReact',
+      fileName: (format) => `spearui-react.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
