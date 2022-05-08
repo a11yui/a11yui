@@ -3,5 +3,5 @@
 </script>
 
 <button class="ui-button" {...$$restProps}>
-  <slot></slot>>
+  <slot></slot>
 </button>
