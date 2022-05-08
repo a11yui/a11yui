@@ -6,8 +6,10 @@
     "packages/*"
   ],
   "scripts": {
+    "build": "yarn workspaces foreach -pv --topological-dev run build",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "version:bump": "yarn version check --interactive && yarn version apply --all"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "latest",
