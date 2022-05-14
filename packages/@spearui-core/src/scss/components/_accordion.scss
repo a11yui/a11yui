@@ -1,0 +1,9 @@
+[data-accordion-content] {
+  display: none;
+}
+
+[data-accordion-expanded] {
+  [data-accordion-content] {
+    display: block;
+  }
+}
