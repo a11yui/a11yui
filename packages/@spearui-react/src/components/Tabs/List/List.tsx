@@ -7,6 +7,7 @@ import type {
 
 interface Props {
   children?: React.ReactNode;
+  vertical?: boolean;
 }
 
 type TabsListProps<C extends React.ElementType> =
@@ -14,12 +15,19 @@ type TabsListProps<C extends React.ElementType> =
 
 export const TabsList = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { as, ...rest }: TabsListProps<C>,
+    { as, vertical, ...rest }: TabsListProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'div';
 
-    return <Component {...rest} ref={ref} data-tabs-list />;
+    return (
+      <Component
+        {...rest}
+        ref={ref}
+        data-tabs-list
+        aria-orientation={vertical ? 'vertical' : 'horizontal'}
+      />
+    );
   },
 );
 
