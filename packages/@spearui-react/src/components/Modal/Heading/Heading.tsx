@@ -9,12 +9,12 @@ interface Props {
   children?: React.ReactNode;
 }
 
-type HeadingProps<C extends React.ElementType> =
+type ModalHeadingProps<C extends React.ElementType> =
   PolymorphicComponentPropsWithRef<C, Props>;
 
-export const Heading = forwardRef(
+export const ModalHeading = forwardRef(
   <C extends React.ElementType = 'h2'>(
-    { as, ...rest }: HeadingProps<C>,
+    { as, ...rest }: ModalHeadingProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'h2';
@@ -23,6 +23,6 @@ export const Heading = forwardRef(
   },
 );
 
-Heading.displayName = 'ModalHeading';
+ModalHeading.displayName = 'ModalHeading';
 
-export default Heading;
+export default ModalHeading;

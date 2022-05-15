@@ -1,4 +1,4 @@
-import { Accordion, Modal } from './components';
+import { Accordion, Modal, Tabs } from './components';
 
 function App() {
   return (
@@ -36,6 +36,20 @@ function App() {
           </Modal.Content>
         </div>
       </Modal>
+
+      <h2>Tabs</h2>
+
+      <Tabs>
+        <Tabs.List>
+          <Tabs.Toggle>One</Tabs.Toggle>
+          <Tabs.Toggle>Two</Tabs.Toggle>
+          <Tabs.Toggle>Three</Tabs.Toggle>
+        </Tabs.List>
+
+        <Tabs.Panel>Content one</Tabs.Panel>
+        <Tabs.Panel>Content two</Tabs.Panel>
+        <Tabs.Panel>Content three</Tabs.Panel>
+      </Tabs>
     </>
   );
 }

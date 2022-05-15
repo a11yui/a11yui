@@ -9,20 +9,20 @@ interface Props {
   children?: React.ReactNode;
 }
 
-type ModalContentProps<C extends React.ElementType> =
+type TabsListProps<C extends React.ElementType> =
   PolymorphicComponentPropsWithRef<C, Props>;
 
-export const ModalContent = forwardRef(
+export const TabsList = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { as, ...rest }: ModalContentProps<C>,
+    { as, ...rest }: TabsListProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'div';
 
-    return <Component {...rest} ref={ref} data-modal-content />;
+    return <Component {...rest} ref={ref} data-tabs-list />;
   },
 );
 
-ModalContent.displayName = 'ModalContent';
+TabsList.displayName = 'TabsList';
 
-export default ModalContent;
+export default TabsList;

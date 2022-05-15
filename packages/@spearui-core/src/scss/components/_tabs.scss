@@ -1,0 +1,7 @@
+[data-tabs-panel] {
+  display: none;
+
+  &[aria-hidden="false"] {
+    display: block;
+  }
+}
