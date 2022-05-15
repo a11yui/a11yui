@@ -1,4 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
+import { arrowKeys } from '../utils';
 
 // Data properties
 const TABS = 'data-tabs';
@@ -21,20 +22,30 @@ function clickTab(e: Event) {
   const activeToggle = tabs?.querySelector(
     `[${TABS_TOGGLE}][aria-selected="true"]`,
   );
-  const activePanel = tabs?.querySelector(
-    `[${TABS_PANEL}][aria-hidden="false"]`,
-  );
-  const panelId = button.getAttribute('aria-controls');
-  const newPanel = tabs?.querySelector(`#${panelId}`);
 
   // Deselect active tab/panel
   activeToggle?.setAttribute('aria-selected', 'false');
-  activePanel?.setAttribute('aria-hidden', 'true');
+  activeToggle?.setAttribute('tabindex', '-1');
 
   // Select current panel
   button.setAttribute('aria-selected', 'true');
-  newPanel?.setAttribute('aria-hidden', 'false');
+  button.setAttribute('tabindex', '0');
 }
+
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    const target = mutation.target as HTMLElement;
+    const id = target.getAttribute('aria-controls');
+    const selected = target.getAttribute('aria-selected');
+    const value = selected !== 'true';
+
+    if (!value) target.focus();
+
+    if (!id) return;
+
+    document.getElementById(id)?.setAttribute('aria-hidden', value.toString());
+  });
+});
 
 function on(el: Element) {
   // If element does not have tabs attribute, return
@@ -50,6 +61,14 @@ function on(el: Element) {
   // Add tablist attribute
   const tabList = el.querySelector(`[${TABS_LIST}]`);
 
+  if (tabList) {
+    if (!tabList?.getAttribute('aria-orientation')) {
+      tabList.setAttribute('aria-orientation', 'horizontal');
+    }
+
+    arrowKeys.on(tabList, `[${TABS_TOGGLE}]`);
+  }
+
   tabList?.setAttribute('role', 'tablist');
 
   const combined = [];
@@ -57,6 +76,11 @@ function on(el: Element) {
   // Match tab to content
   for (let i = 0; i < toggles.length; i++) {
     const toggle = toggles[i];
+
+    observer.observe(toggle, {
+      attributes: true,
+      attributeFilter: ['aria-selected'],
+    });
 
     combined.push({ tab: toggle, panel: panels[i] });
   }
@@ -79,12 +103,10 @@ function on(el: Element) {
     // Set first item attributes
     if (i === 0) {
       element.tab.setAttribute('aria-selected', 'true');
-      element.tab.setAttribute('tab-index', '0');
-      element.panel.setAttribute('aria-hidden', 'false');
+      element.tab.setAttribute('tabindex', '0');
     } else {
       element.tab.setAttribute('aria-selected', 'false');
-      element.tab.setAttribute('tab-index', '-1');
-      element.panel.setAttribute('aria-hidden', 'true');
+      element.tab.setAttribute('tabindex', '-1');
     }
 
     // Add event listeners to tab buttons
@@ -96,7 +118,13 @@ function off(el: Element) {
   // If element does not have tabs attribute, return
   if (!isTabs(el)) return;
 
+  observer.disconnect();
+
   const toggles = el.querySelectorAll(`[${TABS_TOGGLE}]`);
+
+  const tabList = el.querySelector(`[${TABS_LIST}]`);
+
+  if (tabList) arrowKeys.off(tabList, `[${TABS_TOGGLE}]`);
 
   for (let i = 0; i < toggles.length; i++) {
     const element = toggles[i];
@@ -111,17 +139,3 @@ const tabs = {
 };
 
 export default tabs;
-
-/*
-
-<div data-tabs>
-  <div data-tabs-list role='tablist'>
-    <button data-tabs-toggle id="tab-one" aria-controls="panel-one" role="tab" aria-selected></button>
-    <button data-tabs-toggle id="tab-two" aria-controls="panel-two" role="tab" aria-selected="false" tab-index="-1"></button>
-  </div>
-
-  <div data-tabs-panel id="panel-one" aria-labelledby="tab-one" role='tabpanel' aria-hidden="false"></div>
-  <div data-tabs-panel id="panel-two" aria-labelledby="tab-two" role='tabpanel' aria-hidden="true"></div>
-</div>
-
-*/

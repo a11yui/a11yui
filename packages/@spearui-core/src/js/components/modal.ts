@@ -48,9 +48,11 @@ function toggle(el: Element, state?: 'open' | 'close') {
   if (el.getAttribute('aria-hidden') === 'false') {
     document.body.setAttribute(BODY_MODAL_OPEN, 'true');
     focusTrap.on(el);
+    document.body.addEventListener('keydown', (e: Event) => escClose(e, el));
   } else {
     document.body.removeAttribute(BODY_MODAL_OPEN);
     focusTrap.off(el);
+    document.body.removeEventListener('keydown', (e: Event) => escClose(e, el));
   }
 }
 
@@ -128,7 +130,6 @@ function on(el: Element) {
 
   // Modal event listeners
   el.addEventListener('click', modalClick);
-  document.body.addEventListener('keydown', (e: Event) => escClose(e, el));
 
   // Event listeners for open elements outside modal
   if (modalId) {
@@ -183,7 +184,7 @@ function off(el: Element) {
   }
 
   // Inner elements that close the modal
-  const closeToggles = el.querySelectorAll('[data-close-modal]');
+  const closeToggles = el.querySelectorAll(`[${CLOSE_MODAL}]`);
 
   // Event listeners for close elements in the modal
   for (let i = 0; i < closeToggles.length; i++) {
