@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { createClassString } from '@internal/utils';
 
 import type {
   PolymorphicComponentPropsWithRef,
@@ -6,7 +7,7 @@ import type {
 } from '../../../types';
 
 interface Props {
-  children?: React.ReactNode;
+  className?: string;
 }
 
 type ModalContentProps<C extends React.ElementType> =
@@ -14,12 +15,21 @@ type ModalContentProps<C extends React.ElementType> =
 
 export const ModalContent = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { as, ...rest }: ModalContentProps<C>,
+    { as, className, ...rest }: ModalContentProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'div';
 
-    return <Component {...rest} ref={ref} data-modal-content />;
+    return (
+      <Component
+        {...rest}
+        ref={ref}
+        className={createClassString(
+          'a11y-modal-content',
+          className ? className : '',
+        )}
+      />
+    );
   },
 );
 

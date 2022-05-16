@@ -12,10 +12,18 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "version:bump": "yarn version check --interactive && yarn version apply --all",
-    "react:start": "yarn workspace @a11yui/react run dev",
-    "svelte:start": "yarn workspace @a11yui/svelte run dev",
-    "vue:start": "yarn workspace @a11yui/vue run dev",
-    "lit:start": "yarn workspace @a11yui/web-components run dev"
+    "core:dev": "yarn workspace @a11yui/core run dev",
+    "core:build": "yarn workspace @a11yui/core run build",
+    "preact:dev": "yarn workspace @a11yui/preact run dev",
+    "preact:build": "yarn workspace @a11yui/preact run build",
+    "react:dev": "yarn workspace @a11yui/react run dev",
+    "react:build": "yarn workspace @a11yui/react run build",
+    "svelte:dev": "yarn workspace @a11yui/svelte run dev",
+    "svelte:build": "yarn workspace @a11yui/svelte run build",
+    "vue:dev": "yarn workspace @a11yui/vue run dev",
+    "vue:build": "yarn workspace @a11yui/vue run build",
+    "lit:dev": "yarn workspace @a11yui/web-components run dev",
+    "lit:build": "yarn workspace @a11yui/web-components run build"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "latest",

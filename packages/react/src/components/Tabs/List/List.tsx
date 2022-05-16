@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { createClassString } from '@internal/utils';
 
 import type {
   PolymorphicComponentPropsWithRef,
@@ -6,7 +7,7 @@ import type {
 } from '../../../types';
 
 interface Props {
-  children?: React.ReactNode;
+  className?: string;
   vertical?: boolean;
 }
 
@@ -15,7 +16,7 @@ type TabsListProps<C extends React.ElementType> =
 
 export const TabsList = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { as, vertical, ...rest }: TabsListProps<C>,
+    { as, className, vertical, ...rest }: TabsListProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'div';
@@ -24,7 +25,10 @@ export const TabsList = forwardRef(
       <Component
         {...rest}
         ref={ref}
-        data-tabs-list
+        className={createClassString(
+          'a11y-tabs-list',
+          className ? className : '',
+        )}
         aria-orientation={vertical ? 'vertical' : 'horizontal'}
       />
     );

@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { createClassString } from '@internal/utils';
 
 import type {
   PolymorphicComponentPropsWithRef,
@@ -6,7 +7,7 @@ import type {
 } from '../../../types';
 
 interface Props {
-  children?: React.ReactNode;
+  className?: string;
 }
 
 type AccordionContentProps<C extends React.ElementType> =
@@ -14,12 +15,21 @@ type AccordionContentProps<C extends React.ElementType> =
 
 export const AccordionContent = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { as, ...rest }: AccordionContentProps<C>,
+    { as, className, ...rest }: AccordionContentProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'div';
 
-    return <Component {...rest} ref={ref} data-accordion-content />;
+    return (
+      <Component
+        {...rest}
+        ref={ref}
+        className={createClassString(
+          'a11y-accordion-content',
+          className ? className : '',
+        )}
+      />
+    );
   },
 );
 

@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { createClassString } from '@internal/utils';
 
 import type {
   PolymorphicComponentPropsWithRef,
@@ -6,7 +7,7 @@ import type {
 } from '../../../types';
 
 interface Props {
-  children?: React.ReactNode;
+  className?: string;
 }
 
 type TabsToggleProps<C extends React.ElementType> =
@@ -14,12 +15,22 @@ type TabsToggleProps<C extends React.ElementType> =
 
 export const TabsToggle = forwardRef(
   <C extends React.ElementType = 'button'>(
-    { as, ...rest }: TabsToggleProps<C>,
+    { as, className, ...rest }: TabsToggleProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'button';
 
-    return <Component {...rest} ref={ref} data-tabs-toggle />;
+    return (
+      <Component
+        {...rest}
+        ref={ref}
+        className={createClassString(
+          'a11y-tabs-toggle',
+          className ? className : '',
+        )}
+        data-tabs-toggle
+      />
+    );
   },
 );
 

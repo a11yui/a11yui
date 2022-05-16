@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { accordion } from '@a11yui/core';
+import { createClassString } from '@internal/utils';
 import { useForwardedRef } from '../../hooks';
 
 import Content from './Content';
@@ -16,7 +17,7 @@ import type {
 } from '../../types';
 
 interface Props {
-  children?: React.ReactNode;
+  className?: string;
   multiselect?: boolean;
 }
 
@@ -25,7 +26,7 @@ type AccordionComponentProps<C extends React.ElementType> =
 
 export const AccordionComponent = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { as, multiselect, ...rest }: AccordionComponentProps<C>,
+    { as, className, multiselect, ...rest }: AccordionComponentProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'div';
@@ -47,7 +48,10 @@ export const AccordionComponent = forwardRef(
       <Component
         {...rest}
         ref={safeRef}
-        data-accordion
+        className={createClassString(
+          'a11y-accordion',
+          className ? className : '',
+        )}
         aria-multiselectable={multiselect}
       />
     );

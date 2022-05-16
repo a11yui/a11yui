@@ -38,6 +38,7 @@ __metadata:
   resolution: "@a11yui/react@workspace:packages/react"
   dependencies:
     "@a11yui/core": "workspace:*"
+    "@internal/utils": "workspace:*"
     "@types/react": ^18.0.0
     "@types/react-dom": ^18.0.0
     "@vitejs/plugin-react": ^1.3.0
@@ -450,7 +451,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@internal/utils@workspace:shared/utils":
+"@internal/utils@workspace:*, @internal/utils@workspace:shared/utils":
   version: 0.0.0-use.local
   resolution: "@internal/utils@workspace:shared/utils"
   dependencies:

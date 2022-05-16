@@ -1,5 +1,6 @@
 import { forwardRef, useEffect } from 'react';
 import { modal } from '@a11yui/core';
+import { createClassString } from '@internal/utils';
 import { useForwardedRef } from '../../hooks';
 
 import Content from './Content';
@@ -13,6 +14,7 @@ import type {
 import './modal.scss';
 
 interface Props {
+  className?: string;
   forceAction?: boolean;
 }
 
@@ -23,7 +25,7 @@ type ModalProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<
 
 export const ModalComponent = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { as, forceAction, ...rest }: ModalProps<C>,
+    { as, className, forceAction, ...rest }: ModalProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'div';
@@ -45,8 +47,11 @@ export const ModalComponent = forwardRef(
       <Component
         {...rest}
         ref={safeRef}
-        data-modal
-        data-modal-force-action={forceAction}
+        className={createClassString(
+          'a11y-modal',
+          forceAction ? 'a11y-modal-force-action' : '',
+          className ? className : '',
+        )}
       />
     );
   },

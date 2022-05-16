@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { createClassString } from '@internal/utils';
 
 import type {
   PolymorphicComponentPropsWithRef,
@@ -6,7 +7,7 @@ import type {
 } from '../../../types';
 
 interface Props {
-  children?: React.ReactNode;
+  className?: string;
 }
 
 type AccordionToggleProps<C extends React.ElementType> =
@@ -14,12 +15,21 @@ type AccordionToggleProps<C extends React.ElementType> =
 
 export const AccordionToggle = forwardRef(
   <C extends React.ElementType = 'button'>(
-    { as, ...rest }: AccordionToggleProps<C>,
+    { as, className, ...rest }: AccordionToggleProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'button';
 
-    return <Component {...rest} ref={ref} data-accordion-toggle />;
+    return (
+      <Component
+        {...rest}
+        ref={ref}
+        className={createClassString(
+          'a11y-accordion-toggle',
+          className ? className : '',
+        )}
+      />
+    );
   },
 );
 

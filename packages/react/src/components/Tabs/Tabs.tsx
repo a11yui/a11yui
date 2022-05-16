@@ -1,5 +1,6 @@
 import { forwardRef, useEffect } from 'react';
 import { tabs } from '@a11yui/core';
+import { createClassString } from '@internal/utils';
 import { useForwardedRef } from '../../hooks';
 
 import List from './List';
@@ -14,7 +15,7 @@ import type {
 import './tabs.scss';
 
 interface Props {
-  children?: React.ReactNode;
+  className?: string;
 }
 
 type TabsProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<
@@ -24,7 +25,7 @@ type TabsProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<
 
 export const TabsComponent = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { as, ...rest }: TabsProps<C>,
+    { as, className, ...rest }: TabsProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'div';
@@ -42,7 +43,13 @@ export const TabsComponent = forwardRef(
       };
     }, []);
 
-    return <Component {...rest} ref={safeRef} data-tabs />;
+    return (
+      <Component
+        {...rest}
+        ref={safeRef}
+        className={createClassString('a11y-tabs', className ? className : '')}
+      />
+    );
   },
 );
 
