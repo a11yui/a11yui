@@ -1,24 +1,24 @@
 import uniqueId from 'lodash.uniqueid';
 
 // Data properties
-const ACCORDION = 'data-accordion';
-const ACCORDION_ITEM = 'data-accordion-item';
-const ACCORDION_EXPANDED = 'data-accordion-expanded';
-const ACCORDION_TOGGLE = 'data-accordion-toggle';
-const ACCORDION_CONTENT = 'data-accordion-content';
+const ACCORDION = 'a11y-accordion';
+const ACCORDION_ITEM = 'a11y-accordion-item';
+const ACCORDION_EXPANDED = 'expanded';
+const ACCORDION_TOGGLE = 'a11y-accordion-toggle';
+const ACCORDION_CONTENT = 'a11y-accordion-content';
 
 // Checks if element is accordion
 function isAccordion(el: Element) {
-  return el.getAttribute(ACCORDION) === 'true';
+  return el.classList.contains(ACCORDION);
 }
 
 // Toggle the accordion
 function toggle(e: Event) {
   // Accordion elements
   const button = <HTMLElement>e.target;
-  const accordion = button.closest(`[${ACCORDION}]`);
-  const item = button.closest(`[${ACCORDION_ITEM}]`);
-  const content = item?.querySelector(`[${ACCORDION_CONTENT}]`);
+  const accordion = button.closest(`.${ACCORDION}`);
+  const item = button.closest(`.${ACCORDION_ITEM}`);
+  const content = item?.querySelector(`.${ACCORDION_CONTENT}`);
 
   // Is it currently expanded?
   const expanded = button?.getAttribute('aria-expanded') === 'true';
@@ -27,20 +27,20 @@ function toggle(e: Event) {
   if (accordion && accordion?.getAttribute('aria-multiselectable') !== 'true') {
     // All accordion items
     const items = accordion?.querySelectorAll(
-      `[${ACCORDION_ITEM}="true"][${ACCORDION_EXPANDED}="true"]`,
+      `.${ACCORDION_ITEM}.${ACCORDION_EXPANDED}`,
     );
 
     if (items) {
       for (let i = 0; i < items.length; i++) {
         const element = items[i];
-        // Remove attributes from siblings
-        element.removeAttribute(ACCORDION_EXPANDED);
+        // Remove class from siblings
+        element.classList.remove(ACCORDION_EXPANDED);
 
         element
-          .querySelector(`[${ACCORDION_TOGGLE}]`)
+          .querySelector(`.${ACCORDION_TOGGLE}`)
           ?.setAttribute('aria-expanded', 'false');
         element
-          .querySelector(ACCORDION_CONTENT)
+          .querySelector(`.${ACCORDION_CONTENT}`)
           ?.setAttribute('aria-hidden', 'true');
       }
     }
@@ -48,9 +48,9 @@ function toggle(e: Event) {
 
   // Toggle expanded attribute on item
   if (expanded) {
-    item?.removeAttribute(ACCORDION_EXPANDED);
+    item?.classList.remove(ACCORDION_EXPANDED);
   } else {
-    item?.setAttribute(ACCORDION_EXPANDED, 'true');
+    item?.classList.add(ACCORDION_EXPANDED);
   }
 
   // Toggle expanded attribute on button
@@ -70,7 +70,7 @@ function on(el: Element) {
   if (!isAccordion(el)) return;
 
   // All accordion items
-  const items = el.querySelectorAll(`[${ACCORDION_ITEM}]`);
+  const items = el.querySelectorAll(`.${ACCORDION_ITEM}`);
 
   // Loop through items
   for (let i = 0; i < items.length; i++) {
@@ -79,11 +79,11 @@ function on(el: Element) {
 
     // Variables
     const id = item.getAttribute('id') || uniqueId('accordion-content-');
-    const expanded = item.getAttribute(ACCORDION_EXPANDED) === 'true';
+    const expanded = item.classList.contains(ACCORDION_EXPANDED);
 
     // Accordion item elements
-    const button = item.querySelector(`[${ACCORDION_TOGGLE}]`);
-    const content = item.querySelector(`[${ACCORDION_CONTENT}]`);
+    const button = item.querySelector(`.${ACCORDION_TOGGLE}`);
+    const content = item.querySelector(`.${ACCORDION_CONTENT}`);
 
     // Set accessibility attributes
     if (expanded) button?.setAttribute('aria-expanded', 'true');
@@ -106,7 +106,7 @@ function off(el: Element) {
   if (!isAccordion(el)) return;
 
   // All accordion items
-  const items = el.querySelectorAll(`[${ACCORDION_ITEM}]`);
+  const items = el.querySelectorAll(`.${ACCORDION_ITEM}`);
 
   // Loop through items
   for (let i = 0; i < items.length; i++) {
@@ -114,7 +114,7 @@ function off(el: Element) {
     const item = items[i];
 
     // Accordion item toggle button
-    const button = item.querySelector(`[${ACCORDION_TOGGLE}]`);
+    const button = item.querySelector(`.${ACCORDION_TOGGLE}`);
 
     // Remove button click listener
     button?.removeEventListener('click', toggle);

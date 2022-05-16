@@ -2,16 +2,16 @@ import uniqueId from 'lodash.uniqueid';
 import { focusTrap } from '../utils';
 
 // Data properties
-const BODY_MODAL_OPEN = 'data-modal-open';
-const MODAL = 'data-modal';
-const MODAL_FORCE_ACTION = 'data-modal-force-action';
-const MODAL_HEADING = 'data-modal-heading';
-const MODAL_CONTENT = 'data-modal-content';
+const BODY_MODAL_OPEN = 'a11y-modal-open';
+const MODAL = 'a11y-modal';
+const MODAL_FORCE_ACTION = 'a11y-modal-force-action';
+const MODAL_HEADING = 'a11y-modal-heading';
+const MODAL_CONTENT = 'a11y-modal-content';
 const CLOSE_MODAL = 'data-modal-close';
 
 // Checks if element is modal
 function isModal(el: Element) {
-  return el.getAttribute(MODAL) === 'true';
+  return el.classList.contains(MODAL);
 }
 
 /**
@@ -46,11 +46,11 @@ function toggle(el: Element, state?: 'open' | 'close') {
   }
 
   if (el.getAttribute('aria-hidden') === 'false') {
-    document.body.setAttribute(BODY_MODAL_OPEN, 'true');
+    document.body.classList.add(BODY_MODAL_OPEN);
     focusTrap.on(el);
     document.body.addEventListener('keydown', (e: Event) => escClose(e, el));
   } else {
-    document.body.removeAttribute(BODY_MODAL_OPEN);
+    document.body.classList.remove(BODY_MODAL_OPEN);
     focusTrap.off(el);
     document.body.removeEventListener('keydown', (e: Event) => escClose(e, el));
   }
@@ -62,7 +62,7 @@ function modalClick(e: Event) {
 
   if (
     modal !== e.currentTarget ||
-    modal.getAttribute(MODAL_FORCE_ACTION) === 'true'
+    modal.classList.contains(MODAL_FORCE_ACTION)
   ) {
     return;
   }
@@ -74,17 +74,14 @@ function modalClick(e: Event) {
 function escClose(e: Event, modal: Element) {
   if (
     modal.getAttribute('aria-hidden') === 'true' ||
-    modal.getAttribute(MODAL_FORCE_ACTION) === 'true'
+    modal.classList.contains(MODAL_FORCE_ACTION)
   ) {
     return;
   }
 
   const event = <KeyboardEvent>e;
 
-  if (
-    event.key === 'Escape' &&
-    modal.getAttribute(MODAL_FORCE_ACTION) !== 'true'
-  ) {
+  if (event.key === 'Escape') {
     toggle(modal, 'close');
   }
 }
@@ -105,8 +102,8 @@ function on(el: Element) {
   if (!hiddenAttr) el.setAttribute('aria-hidden', 'true');
 
   // Modal elements
-  const heading = el.querySelector(`[${MODAL_HEADING}]`);
-  const content = el.querySelector(`[${MODAL_CONTENT}]`);
+  const heading = el.querySelector(`.${MODAL_HEADING}`);
+  const content = el.querySelector(`.${MODAL_CONTENT}`);
 
   const elementsId = uniqueId();
 
@@ -145,7 +142,7 @@ function on(el: Element) {
   }
 
   // Inner elements that close the modal
-  const closeToggles = el.querySelectorAll(`[${CLOSE_MODAL}]`);
+  const closeToggles = el.querySelectorAll(`[${CLOSE_MODAL}="true"]`);
 
   // Event listeners for close elements in the modal
   for (let i = 0; i < closeToggles.length; i++) {
@@ -184,7 +181,7 @@ function off(el: Element) {
   }
 
   // Inner elements that close the modal
-  const closeToggles = el.querySelectorAll(`[${CLOSE_MODAL}]`);
+  const closeToggles = el.querySelectorAll(`[${CLOSE_MODAL}="true"]`);
 
   // Event listeners for close elements in the modal
   for (let i = 0; i < closeToggles.length; i++) {

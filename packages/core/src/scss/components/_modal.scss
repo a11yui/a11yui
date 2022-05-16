@@ -1,8 +1,8 @@
-body[data-modal-open] {
+body.a11y-modal-open {
   overflow: hidden;
 }
 
-[data-modal] {
+.a11y-modal {
   align-items: center;
   bottom: 0;
   display: none;

@@ -1,9 +1,9 @@
-[data-accordion-content] {
+.a11y-accordion-content {
   display: none;
 }
 
-[data-accordion-expanded] {
-  [data-accordion-content] {
+.a11y-accordion-item.expanded {
+  .a11y-accordion-content {
     display: block;
   }
 }

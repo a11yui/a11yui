@@ -2,13 +2,13 @@ import uniqueId from 'lodash.uniqueid';
 import { arrowKeys } from '../utils';
 
 // Data properties
-const TABS = 'data-tabs';
-const TABS_LIST = 'data-tabs-list';
-const TABS_TOGGLE = 'data-tabs-toggle';
-const TABS_PANEL = 'data-tabs-panel';
+const TABS = 'a11y-tabs';
+const TABS_LIST = 'a11y-tabs-list';
+const TABS_TOGGLE = 'a11y-tabs-toggle';
+const TABS_PANEL = 'a11y-tabs-panel';
 
 function isTabs(el: Element) {
-  return el.getAttribute(TABS) === 'true';
+  return el.classList.contains(TABS);
 }
 
 function clickTab(e: Event) {
@@ -18,9 +18,9 @@ function clickTab(e: Event) {
   if (button.getAttribute('aria-selected') === 'true') return;
 
   // Tab elements
-  const tabs = button.closest(`[${TABS}]`);
+  const tabs = button.closest(`.${TABS}`);
   const activeToggle = tabs?.querySelector(
-    `[${TABS_TOGGLE}][aria-selected="true"]`,
+    `.${TABS_TOGGLE}[aria-selected="true"]`,
   );
 
   // Deselect active tab/panel
@@ -51,22 +51,22 @@ function on(el: Element) {
   // If element does not have tabs attribute, return
   if (!isTabs(el)) return;
 
-  const toggles = el.querySelectorAll(`[${TABS_TOGGLE}]`);
-  const panels = el.querySelectorAll(`[${TABS_PANEL}]`);
+  const toggles = el.querySelectorAll(`.${TABS_TOGGLE}`);
+  const panels = el.querySelectorAll(`.${TABS_PANEL}`);
 
   if (toggles.length !== panels.length) {
     throw Error('Number of tabs does not match number of tab panels');
   }
 
   // Add tablist attribute
-  const tabList = el.querySelector(`[${TABS_LIST}]`);
+  const tabList = el.querySelector(`.${TABS_LIST}`);
 
   if (tabList) {
     if (!tabList?.getAttribute('aria-orientation')) {
       tabList.setAttribute('aria-orientation', 'horizontal');
     }
 
-    arrowKeys.on(tabList, `[${TABS_TOGGLE}]`);
+    arrowKeys.on(tabList, `.${TABS_TOGGLE}`);
   }
 
   tabList?.setAttribute('role', 'tablist');
@@ -120,11 +120,11 @@ function off(el: Element) {
 
   observer.disconnect();
 
-  const toggles = el.querySelectorAll(`[${TABS_TOGGLE}]`);
+  const toggles = el.querySelectorAll(`.${TABS_TOGGLE}`);
 
-  const tabList = el.querySelector(`[${TABS_LIST}]`);
+  const tabList = el.querySelector(`.${TABS_LIST}`);
 
-  if (tabList) arrowKeys.off(tabList, `[${TABS_TOGGLE}]`);
+  if (tabList) arrowKeys.off(tabList, `.${TABS_TOGGLE}`);
 
   for (let i = 0; i < toggles.length; i++) {
     const element = toggles[i];
