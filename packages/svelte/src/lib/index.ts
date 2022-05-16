@@ -1,1 +1,3 @@
-export { default as Button } from './Button.svelte';
+export * from './Accordion';
+export * from './Modal';
+export * from './Tabs';

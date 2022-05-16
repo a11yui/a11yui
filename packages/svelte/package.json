@@ -10,7 +10,8 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
-    "@a11yui/core": "workspace:^",
+    "@a11yui/core": "workspace:*",
+    "@internal/utils": "workspace:*",
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
     "@tsconfig/svelte": "^2.0.1",
     "svelte": "^3.44.0",
