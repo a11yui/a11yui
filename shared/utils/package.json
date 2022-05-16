@@ -1,0 +1,32 @@
+{
+  "name": "@internal/utils",
+  "private": true,
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:spearui/spearui.git",
+    "directory": "shared/utils"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/spearui-utils.umd.js",
+  "module": "./dist/spearui-utils.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/spearui-utils.es.js",
+      "require": "./dist/spearui-utils.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vite-plugin-dts": "^1.1.1"
+  }
+}

@@ -351,6 +351,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@internal/utils@workspace:shared/utils":
+  version: 0.0.0-use.local
+  resolution: "@internal/utils@workspace:shared/utils"
+  dependencies:
+    typescript: ^4.5.4
+    vite: ^2.9.9
+    vite-plugin-dts: ^1.1.1
+  languageName: unknown
+  linkType: soft
+
 "@jridgewell/gen-mapping@npm:^0.1.0":
   version: 0.1.1
   resolution: "@jridgewell/gen-mapping@npm:0.1.1"
