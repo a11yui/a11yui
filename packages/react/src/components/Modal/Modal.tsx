@@ -1,5 +1,5 @@
 import { forwardRef, useEffect } from 'react';
-import { modal } from '@spearui/core';
+import { modal } from '@a11yui/core';
 import { useForwardedRef } from '../../hooks';
 
 import Content from './Content';

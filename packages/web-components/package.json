@@ -1,5 +1,5 @@
 {
-  "name": "@spearui/web-components",
+  "name": "@a11yui/web-components",
   "private": true,
   "version": "0.0.0",
   "main": "dist/my-element.es.js",
@@ -19,7 +19,7 @@
     "lit": "^2.0.2"
   },
   "devDependencies": {
-    "@spearui/core": "workspace:^",
+    "@a11yui/core": "workspace:^",
     "typescript": "^4.5.4",
     "vite": "^2.9.7"
   }

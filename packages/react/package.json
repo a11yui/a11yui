@@ -1,22 +1,22 @@
 {
-  "name": "@spearui/react",
+  "name": "@a11yui/react",
   "private": true,
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:spearui/spearui.git",
-    "directory": "packages/@spearui-react"
+    "url": "git@github.com:a11yui/a11yui.git",
+    "directory": "packages/@a11yui-react"
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/spearui-react.umd.js",
-  "module": "./dist/spearui-react.es.js",
+  "main": "./dist/a11yui-react.umd.js",
+  "module": "./dist/a11yui-react.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/spearui-react.es.js",
-      "require": "./dist/spearui-react.umd.js"
+      "import": "./dist/a11yui-react.es.js",
+      "require": "./dist/a11yui-react.umd.js"
     }
   },
   "scripts": {
@@ -25,7 +25,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@spearui/core": "workspace:*",
+    "@a11yui/core": "workspace:*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

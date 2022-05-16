@@ -4,19 +4,19 @@
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:spearui/spearui.git",
+    "url": "git@github.com:a11yui/a11yui.git",
     "directory": "shared/utils"
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/spearui-utils.umd.js",
-  "module": "./dist/spearui-utils.es.js",
+  "main": "./dist/a11yui-utils.umd.js",
+  "module": "./dist/a11yui-utils.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/spearui-utils.es.js",
-      "require": "./dist/spearui-utils.umd.js"
+      "import": "./dist/a11yui-utils.es.js",
+      "require": "./dist/a11yui-utils.umd.js"
     }
   },
   "scripts": {

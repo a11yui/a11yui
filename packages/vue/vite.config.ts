@@ -8,8 +8,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/components/index.ts'),
-      name: 'SpearUIVue',
-      fileName: (format) => `spearui-vue.${format}.js`,
+      name: 'A11yUIVue',
+      fileName: (format) => `a11yui-vue.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled

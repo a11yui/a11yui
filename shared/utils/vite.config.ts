@@ -13,9 +13,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'SpearUIUtils',
+      name: 'A11yUIUtils',
       formats: ['es', 'umd'],
-      fileName: (format) => `spearui-utils.${format}.js`,
+      fileName: (format) => `a11yui-utils.${format}.js`,
     },
   },
 });

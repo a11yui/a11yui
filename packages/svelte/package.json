@@ -1,5 +1,5 @@
 {
-  "name": "@spearui/svelte",
+  "name": "@a11yui/svelte",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
-    "@spearui/core": "workspace:^",
+    "@a11yui/core": "workspace:^",
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
     "@tsconfig/svelte": "^2.0.1",
     "svelte": "^3.44.0",

@@ -13,9 +13,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/main.ts'),
-      name: 'SpearUICore',
+      name: 'A11yUICore',
       formats: ['es', 'umd'],
-      fileName: (format) => `spearui-core.${format}.js`,
+      fileName: (format) => `a11yui-core.${format}.js`,
     },
   },
   css: {

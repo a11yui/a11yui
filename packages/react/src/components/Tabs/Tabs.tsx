@@ -1,5 +1,5 @@
 import { forwardRef, useEffect } from 'react';
-import { tabs } from '@spearui/core';
+import { tabs } from '@a11yui/core';
 import { useForwardedRef } from '../../hooks';
 
 import List from './List';

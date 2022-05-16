@@ -8,8 +8,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/lib/index.ts'),
-      name: 'SpearUISvelte',
-      fileName: (format) => `spearui-svelte.${format}.js`,
+      name: 'A11yUISvelte',
+      fileName: (format) => `a11yui-svelte.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled

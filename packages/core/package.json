@@ -1,23 +1,23 @@
 {
-  "name": "@spearui/core",
+  "name": "@a11yui/core",
   "private": true,
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:spearui/spearui.git",
-    "directory": "packages/@spearui-core"
+    "url": "git@github.com:a11yui/a11yui.git",
+    "directory": "packages/@a11yui-core"
   },
   "files": [
     "dist",
     "src"
   ],
-  "main": "./dist/spearui-core.umd.js",
-  "module": "./dist/spearui-core.es.js",
+  "main": "./dist/a11yui-core.umd.js",
+  "module": "./dist/a11yui-core.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/spearui-core.es.js",
-      "require": "./dist/spearui-core.umd.js"
+      "import": "./dist/a11yui-core.es.js",
+      "require": "./dist/a11yui-core.umd.js"
     },
     "./scss/*": "./src/scss/*"
   },

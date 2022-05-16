@@ -1,22 +1,22 @@
 {
-  "name": "@spearui/preact",
+  "name": "@a11yui/preact",
   "private": true,
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:spearui/spearui.git",
-    "directory": "packages/@spearui-preact"
+    "url": "git@github.com:a11yui/a11yui.git",
+    "directory": "packages/@a11yui-preact"
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/spearui-preact.umd.js",
-  "module": "./dist/spearui-preact.es.js",
+  "main": "./dist/a11yui-preact.umd.js",
+  "module": "./dist/a11yui-preact.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/spearui-preact.es.js",
-      "require": "./dist/spearui-preact.umd.js"
+      "import": "./dist/a11yui-preact.es.js",
+      "require": "./dist/a11yui-preact.umd.js"
     }
   },
   "scripts": {
@@ -25,7 +25,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@spearui/core": "workspace:*",
+    "@a11yui/core": "workspace:*",
     "preact": "^10.5.15"
   },
   "devDependencies": {

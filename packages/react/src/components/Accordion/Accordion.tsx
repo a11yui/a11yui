@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { accordion } from '@spearui/core';
+import { accordion } from '@a11yui/core';
 import { useForwardedRef } from '../../hooks';
 
 import Content from './Content';

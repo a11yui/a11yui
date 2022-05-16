@@ -5,6 +5,105 @@ __metadata:
   version: 6
   cacheKey: 8
 
+"@a11yui/core@workspace:*, @a11yui/core@workspace:^, @a11yui/core@workspace:packages/core":
+  version: 0.0.0-use.local
+  resolution: "@a11yui/core@workspace:packages/core"
+  dependencies:
+    "@types/lodash.uniqueid": ^4.0.7
+    autoprefixer: ^10.4.7
+    lodash.uniqueid: ^4.0.1
+    normalize.css: ^8.0.1
+    sass: ^1.51.0
+    typescript: ^4.5.4
+    vite: ^2.9.7
+    vite-plugin-dts: ^1.1.1
+  languageName: unknown
+  linkType: soft
+
+"@a11yui/preact@workspace:packages/preact":
+  version: 0.0.0-use.local
+  resolution: "@a11yui/preact@workspace:packages/preact"
+  dependencies:
+    "@a11yui/core": "workspace:*"
+    "@preact/preset-vite": ^2.1.5
+    preact: ^10.5.15
+    typescript: ^4.5.4
+    vite: ^2.9.9
+    vite-plugin-dts: ^1.1.1
+  languageName: unknown
+  linkType: soft
+
+"@a11yui/react@workspace:packages/react":
+  version: 0.0.0-use.local
+  resolution: "@a11yui/react@workspace:packages/react"
+  dependencies:
+    "@a11yui/core": "workspace:*"
+    "@types/react": ^18.0.0
+    "@types/react-dom": ^18.0.0
+    "@vitejs/plugin-react": ^1.3.0
+    eslint-plugin-react: ^7.29.4
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    typescript: ^4.6.3
+    vite: ^2.9.7
+    vite-plugin-dts: ^1.1.1
+  languageName: unknown
+  linkType: soft
+
+"@a11yui/root@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@a11yui/root@workspace:."
+  dependencies:
+    "@typescript-eslint/eslint-plugin": latest
+    "@typescript-eslint/parser": latest
+    eslint: ^8.15.0
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-prettier: ^4.0.0
+    prettier: ^2.6.2
+  languageName: unknown
+  linkType: soft
+
+"@a11yui/svelte@workspace:packages/svelte":
+  version: 0.0.0-use.local
+  resolution: "@a11yui/svelte@workspace:packages/svelte"
+  dependencies:
+    "@a11yui/core": "workspace:^"
+    "@sveltejs/vite-plugin-svelte": ^1.0.0-next.30
+    "@tsconfig/svelte": ^2.0.1
+    svelte: ^3.44.0
+    svelte-check: ^2.2.7
+    svelte-preprocess: ^4.9.8
+    tslib: ^2.3.1
+    typescript: ^4.5.4
+    vite: ^2.9.7
+  languageName: unknown
+  linkType: soft
+
+"@a11yui/vue@workspace:packages/vue":
+  version: 0.0.0-use.local
+  resolution: "@a11yui/vue@workspace:packages/vue"
+  dependencies:
+    "@a11yui/core": "workspace:^"
+    "@vitejs/plugin-vue": ^2.3.1
+    eslint-plugin-vue: ^8.7.1
+    typescript: ^4.5.4
+    vite: ^2.9.7
+    vue: ^3.2.25
+    vue-tsc: ^0.34.7
+  languageName: unknown
+  linkType: soft
+
+"@a11yui/web-components@workspace:packages/web-components":
+  version: 0.0.0-use.local
+  resolution: "@a11yui/web-components@workspace:packages/web-components"
+  dependencies:
+    "@a11yui/core": "workspace:^"
+    lit: ^2.0.2
+    typescript: ^4.5.4
+    vite: ^2.9.7
+  languageName: unknown
+  linkType: soft
+
 "@ampproject/remapping@npm:^2.1.0":
   version: 2.2.0
   resolution: "@ampproject/remapping@npm:2.2.0"
@@ -614,105 +713,6 @@ __metadata:
   checksum: 966692b5738d198130d6a8f01f819dfa95dccaf7a8e4c2f9d76d36205790584e827afb18f837703f07bfe93faa3b705c81e682888a4aef0da350758c7c6582d1
   languageName: node
   linkType: hard
-
-"@spearui/core@workspace:*, @spearui/core@workspace:^, @spearui/core@workspace:packages/@spearui-core":
-  version: 0.0.0-use.local
-  resolution: "@spearui/core@workspace:packages/@spearui-core"
-  dependencies:
-    "@types/lodash.uniqueid": ^4.0.7
-    autoprefixer: ^10.4.7
-    lodash.uniqueid: ^4.0.1
-    normalize.css: ^8.0.1
-    sass: ^1.51.0
-    typescript: ^4.5.4
-    vite: ^2.9.7
-    vite-plugin-dts: ^1.1.1
-  languageName: unknown
-  linkType: soft
-
-"@spearui/preact@workspace:packages/@spearui-preact":
-  version: 0.0.0-use.local
-  resolution: "@spearui/preact@workspace:packages/@spearui-preact"
-  dependencies:
-    "@preact/preset-vite": ^2.1.5
-    "@spearui/core": "workspace:*"
-    preact: ^10.5.15
-    typescript: ^4.5.4
-    vite: ^2.9.9
-    vite-plugin-dts: ^1.1.1
-  languageName: unknown
-  linkType: soft
-
-"@spearui/react@workspace:packages/@spearui-react":
-  version: 0.0.0-use.local
-  resolution: "@spearui/react@workspace:packages/@spearui-react"
-  dependencies:
-    "@spearui/core": "workspace:*"
-    "@types/react": ^18.0.0
-    "@types/react-dom": ^18.0.0
-    "@vitejs/plugin-react": ^1.3.0
-    eslint-plugin-react: ^7.29.4
-    react: ^18.0.0
-    react-dom: ^18.0.0
-    typescript: ^4.6.3
-    vite: ^2.9.7
-    vite-plugin-dts: ^1.1.1
-  languageName: unknown
-  linkType: soft
-
-"@spearui/root@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@spearui/root@workspace:."
-  dependencies:
-    "@typescript-eslint/eslint-plugin": latest
-    "@typescript-eslint/parser": latest
-    eslint: ^8.15.0
-    eslint-config-prettier: ^8.5.0
-    eslint-plugin-prettier: ^4.0.0
-    prettier: ^2.6.2
-  languageName: unknown
-  linkType: soft
-
-"@spearui/svelte@workspace:packages/@spearui-svelte":
-  version: 0.0.0-use.local
-  resolution: "@spearui/svelte@workspace:packages/@spearui-svelte"
-  dependencies:
-    "@spearui/core": "workspace:^"
-    "@sveltejs/vite-plugin-svelte": ^1.0.0-next.30
-    "@tsconfig/svelte": ^2.0.1
-    svelte: ^3.44.0
-    svelte-check: ^2.2.7
-    svelte-preprocess: ^4.9.8
-    tslib: ^2.3.1
-    typescript: ^4.5.4
-    vite: ^2.9.7
-  languageName: unknown
-  linkType: soft
-
-"@spearui/vue@workspace:packages/@spearui-vue":
-  version: 0.0.0-use.local
-  resolution: "@spearui/vue@workspace:packages/@spearui-vue"
-  dependencies:
-    "@spearui/core": "workspace:^"
-    "@vitejs/plugin-vue": ^2.3.1
-    eslint-plugin-vue: ^8.7.1
-    typescript: ^4.5.4
-    vite: ^2.9.7
-    vue: ^3.2.25
-    vue-tsc: ^0.34.7
-  languageName: unknown
-  linkType: soft
-
-"@spearui/web-components@workspace:packages/@spearui-web-components":
-  version: 0.0.0-use.local
-  resolution: "@spearui/web-components@workspace:packages/@spearui-web-components"
-  dependencies:
-    "@spearui/core": "workspace:^"
-    lit: ^2.0.2
-    typescript: ^4.5.4
-    vite: ^2.9.7
-  languageName: unknown
-  linkType: soft
 
 "@sveltejs/vite-plugin-svelte@npm:^1.0.0-next.30":
   version: 1.0.0-next.42
