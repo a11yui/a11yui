@@ -1,5 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
-import { focusTrap } from '../utils';
+import { focusTrap } from '../../utils';
 
 // Data properties
 const BODY_MODAL_OPEN = 'a11y-modal-open';

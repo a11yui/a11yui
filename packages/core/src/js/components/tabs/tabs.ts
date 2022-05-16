@@ -1,5 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
-import { arrowKeys } from '../utils';
+import { arrowKeys } from '../../utils';
 
 // Data properties
 const TABS = 'a11y-tabs';
