@@ -5,7 +5,7 @@ function App() {
     <>
       <h2>Accordion</h2>
 
-      <Accordion multiselect>
+      <Accordion>
         <Accordion.Item>
           <Accordion.Toggle>Title</Accordion.Toggle>
           <Accordion.Content>Content</Accordion.Content>
