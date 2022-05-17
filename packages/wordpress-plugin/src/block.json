@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "a11yui/blocks",
+	"version": "0.0.0",
+	"title": "A11y UI Blocks",
+	"category": "widgets",
+	"icon": "universal-access-alt",
+	"description": "Accessible and compliant blocks using A11y UI.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "a11yui",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
