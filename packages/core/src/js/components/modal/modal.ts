@@ -191,6 +191,9 @@ function off(el: Element) {
   }
 }
 
+/**
+ * Modal element
+ */
 const modal = {
   on,
   off,
