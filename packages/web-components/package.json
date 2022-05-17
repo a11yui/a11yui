@@ -19,7 +19,7 @@
     "lit": "^2.0.2"
   },
   "devDependencies": {
-    "@a11yui/core": "workspace:^",
+    "@a11yui/core": "workspace:*",
     "typescript": "^4.5.4",
     "vite": "^2.9.7"
   }
