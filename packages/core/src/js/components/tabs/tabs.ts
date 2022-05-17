@@ -84,7 +84,7 @@ function on(el: Element) {
   for (let i = 0; i < toggles.length; i++) {
     const toggle = toggles[i];
 
-    observer.observe(toggle, {
+    toggleObserver.observe(toggle, {
       attributes: true,
       attributeFilter: ['aria-selected'],
     });
@@ -130,7 +130,7 @@ function off(el: Element) {
   // If element does not have tabs attribute, return
   if (!isTabs(el)) return;
 
-  observer.disconnect();
+  toggleObserver.disconnect();
 
   const toggles = el.querySelectorAll(`.${TABS_TOGGLE}`);
 
