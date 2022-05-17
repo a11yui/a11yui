@@ -15,8 +15,6 @@
     "version:bump": "yarn version check --interactive && yarn version apply --all",
     "core:dev": "yarn workspace @a11yui/core run dev",
     "core:build": "yarn workspace @a11yui/core run build",
-    "preact:dev": "yarn workspace @a11yui/preact run dev",
-    "preact:build": "yarn workspace @a11yui/preact run build",
     "react:dev": "yarn workspace @a11yui/react run dev",
     "react:build": "yarn workspace @a11yui/react run build",
     "svelte:dev": "yarn workspace @a11yui/svelte run dev",
