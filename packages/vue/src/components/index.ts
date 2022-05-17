@@ -1,1 +1,3 @@
-export { default as Button } from './Button.vue';
+export * from './Accordion';
+export * from './Modal';
+export * from './Tabs';
