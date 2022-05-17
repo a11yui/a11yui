@@ -3,10 +3,6 @@ import { tabs } from '@a11yui/core';
 import { createClassString } from '@internal/utils';
 import { useForwardedRef } from '../../hooks';
 
-import List from './List';
-import Panel from './Panel';
-import Toggle from './Toggle';
-
 import type {
   PolymorphicComponentPropsWithRef,
   PolymorphicRef,
@@ -23,7 +19,7 @@ type TabsProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<
   Props
 >;
 
-export const TabsComponent = forwardRef(
+export const Tabs = forwardRef(
   <C extends React.ElementType = 'div'>(
     { as, className, ...rest }: TabsProps<C>,
     ref?: PolymorphicRef<C>,
@@ -53,8 +49,6 @@ export const TabsComponent = forwardRef(
   },
 );
 
-TabsComponent.displayName = 'Tabs';
-
-const Tabs = Object.assign(TabsComponent, { List, Panel, Toggle });
+Tabs.displayName = 'Tabs';
 
 export default Tabs;

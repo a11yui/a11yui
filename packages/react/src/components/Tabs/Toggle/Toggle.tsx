@@ -28,7 +28,6 @@ export const TabsToggle = forwardRef(
           'a11y-tabs-toggle',
           className ? className : '',
         )}
-        data-tabs-toggle
       />
     );
   },
