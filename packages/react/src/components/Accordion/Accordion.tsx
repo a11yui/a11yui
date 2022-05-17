@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { accordion } from '@a11yui/core';
-import { createClassString } from '@internal/utils';
+import { createClassString } from '@shared/utils';
 import { useForwardedRef } from '../../hooks';
 
 import './accordion.scss';

@@ -30,7 +30,7 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@internal/utils": "workspace:*",
+    "@shared/utils": "workspace:*",
     "@testing-library/react": "^13.2.0",
     "@types/jest": "^27.5.1",
     "@types/react": "^18.0.0",

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import { modal } from '@a11yui/core';
-  import { createClassString } from '@internal/utils';
+  import { createClassString } from '@shared/utils';
 
   let classProp: string = '';
   export { classProp as class };

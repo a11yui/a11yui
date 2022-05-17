@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { createClassString } from '@internal/utils';
+import { createClassString } from '@shared/utils';
 
 import type {
   PolymorphicComponentPropsWithRef,
