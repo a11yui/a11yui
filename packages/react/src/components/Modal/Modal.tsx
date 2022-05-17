@@ -1,10 +1,7 @@
 import { forwardRef, useEffect } from 'react';
 import { modal } from '@a11yui/core';
-import { createClassString } from '@internal/utils';
+import { createClassString } from '@shared/utils';
 import { useForwardedRef } from '../../hooks';
-
-import Content from './Content';
-import Heading from './Heading';
 
 import type {
   PolymorphicComponentPropsWithRef,
@@ -23,7 +20,7 @@ type ModalProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<
   Props
 >;
 
-export const ModalComponent = forwardRef(
+export const Modal = forwardRef(
   <C extends React.ElementType = 'div'>(
     { as, className, forceAction, ...rest }: ModalProps<C>,
     ref?: PolymorphicRef<C>,
@@ -57,8 +54,6 @@ export const ModalComponent = forwardRef(
   },
 );
 
-ModalComponent.displayName = 'Modal';
-
-const Modal = Object.assign(ModalComponent, { Content, Heading });
+Modal.displayName = 'Modal';
 
 export default Modal;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createClassString } from '@internal/utils';
+  import { createClassString } from '@shared/utils';
 
   let classProp: string = '';
   export { classProp as class };

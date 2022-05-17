@@ -10,7 +10,7 @@ const components: {
   tabs,
 };
 
-// Init all A11yUI components on page
+// Init all A11y UI components on page
 for (const key in components) {
   if (Object.prototype.hasOwnProperty.call(components, key)) {
     const component = components[key];
@@ -21,7 +21,7 @@ for (const key in components) {
     for (let j = 0; j < elements.length; j++) {
       const element = elements[j];
 
-      // Apply A11yUI component to element
+      // Apply A11y UI component to element
       component.on(element);
     }
   }

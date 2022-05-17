@@ -54,6 +54,12 @@ function keydown(e: Event, root: Element, toggles: NodeListOf<Element>) {
   }
 }
 
+/**
+ * Initiate arrow keys functionality on an element
+ * @param root Element to add arrow keys to
+ * @param toggleProp Query selector prop for child toggles
+ * @returns
+ */
 function on(root: Element, toggleProp: string) {
   const orientation = root.getAttribute(
     'aria-orientation',
@@ -70,6 +76,11 @@ function on(root: Element, toggleProp: string) {
   root.addEventListener('keydown', (e) => keydown(e, root, toggles));
 }
 
+/**
+ * Tear down arrow keys functionality
+ * @param el Arrow keys element to teardown
+ * @returns
+ */
 function off(root: Element, toggleProp: string) {
   const orientation = root.getAttribute('aria-orientation') as
     | 'horizontal'
@@ -91,6 +102,9 @@ function off(root: Element, toggleProp: string) {
   }
 }
 
+/**
+ * Arrow key functionality based on aria-orientation
+ */
 const arrowKeys = {
   on,
   off,

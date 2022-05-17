@@ -121,6 +121,9 @@ function off(el: Element) {
   }
 }
 
+/**
+ * Accordion element
+ */
 const accordion = {
   on,
   off,

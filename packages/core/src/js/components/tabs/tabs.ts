@@ -7,10 +7,12 @@ const TABS_LIST = 'a11y-tabs-list';
 const TABS_TOGGLE = 'a11y-tabs-toggle';
 const TABS_PANEL = 'a11y-tabs-panel';
 
+// Checks if element is tabs
 function isTabs(el: Element) {
   return el.classList.contains(TABS);
 }
 
+//Tab is clicked
 function clickTab(e: Event) {
   const button = <HTMLElement>e.target;
 
@@ -32,7 +34,7 @@ function clickTab(e: Event) {
   button.setAttribute('tabindex', '0');
 }
 
-const observer = new MutationObserver((mutations) => {
+const toggleObserver = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     const target = mutation.target as HTMLElement;
     const id = target.getAttribute('aria-controls');
@@ -47,6 +49,11 @@ const observer = new MutationObserver((mutations) => {
   });
 });
 
+/**
+ * Initiate a tabs element
+ * @param el Element to add tabs to
+ * @returns
+ */
 function on(el: Element) {
   // If element does not have tabs attribute, return
   if (!isTabs(el)) return;
@@ -77,7 +84,7 @@ function on(el: Element) {
   for (let i = 0; i < toggles.length; i++) {
     const toggle = toggles[i];
 
-    observer.observe(toggle, {
+    toggleObserver.observe(toggle, {
       attributes: true,
       attributeFilter: ['aria-selected'],
     });
@@ -114,11 +121,16 @@ function on(el: Element) {
   }
 }
 
+/**
+ * Tear down a tabs element
+ * @param el Tabs element to teardown
+ * @returns
+ */
 function off(el: Element) {
   // If element does not have tabs attribute, return
   if (!isTabs(el)) return;
 
-  observer.disconnect();
+  toggleObserver.disconnect();
 
   const toggles = el.querySelectorAll(`.${TABS_TOGGLE}`);
 
@@ -133,6 +145,9 @@ function off(el: Element) {
   }
 }
 
+/**
+ * Tabs element
+ */
 const tabs = {
   on,
   off,

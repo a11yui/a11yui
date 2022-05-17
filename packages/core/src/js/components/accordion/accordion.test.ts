@@ -39,20 +39,25 @@ describe('Accordion', () => {
 
   const secondItem = container.querySelectorAll('.a11y-accordion-item')[1];
   const secondButton = secondItem?.querySelector('.a11y-accordion-toggle');
-  // const secondContent = secondItem?.querySelector('.a11y-accordion-content');
 
-  if (!firstItem || !firstButton || !firstContent) {
+  if (
+    !firstItem ||
+    !firstButton ||
+    !firstContent ||
+    !secondItem ||
+    !secondButton
+  ) {
     throw Error('Elements not found');
   }
 
-  test('items have aria attributes', async () => {
+  test('items have attributes', async () => {
     expect(firstButton.getAttribute('aria-controls')).toEqual(
       firstContent.getAttribute('id'),
     );
     expect(firstContent.getAttribute('aria-hidden')).toEqual('true');
   });
 
-  test('is opened', () => {
+  test('is opened', async () => {
     // Toggle accordion
     (firstButton as HTMLElement).click();
 
@@ -61,7 +66,7 @@ describe('Accordion', () => {
     expect(firstContent.getAttribute('aria-hidden')).toEqual('false');
   });
 
-  test('is closed', () => {
+  test('is closed', async () => {
     // Toggle accordion
     (firstButton as HTMLElement).click();
 
@@ -70,7 +75,7 @@ describe('Accordion', () => {
     expect(firstContent.getAttribute('aria-hidden')).toEqual('true');
   });
 
-  test('toggle closes siblings', () => {
+  test('toggle closes siblings', async () => {
     (firstButton as HTMLElement).click();
 
     expect(firstItem.classList.contains('expanded')).toBeTruthy();

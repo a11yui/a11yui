@@ -1,0 +1,27 @@
+@a11yui/core:
+  - packages/core/*
+  - packages/core/**/*
+
+@a11yui/react:
+  - packages/react/*
+  - packages/react/**/*
+
+@a11yui/svelte:
+  - packages/svelte/*
+  - packages/svelte/**/*
+
+@a11yui/vue:
+  - packages/vue/*
+  - packages/vue/**/*
+
+@a11yui/web-components:
+  - packages/web-components/*
+  - packages/web-components/**/*
+
+@shared/utils:
+  - shared/utils/*
+  - shared/utils/**/*
+
+documentation:
+  - docs/*
+  - docs/**/*

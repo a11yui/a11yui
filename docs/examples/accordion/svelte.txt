@@ -1,0 +1,22 @@
+<script lang="ts">
+  import { Accordion } from '@a11yui/svelte';
+</script>
+
+<main>
+  <Accordion>
+    <Accordion.Item>
+      <Accordion.Toggle>Title</Accordion.Toggle>
+      <Accordion.Content>Content</Accordion.Content>
+    </Accordion.Item>
+
+    <Accordion.Item>
+      <Accordion.Toggle>Title</Accordion.Toggle>
+      <Accordion.Content>Content</Accordion.Content>
+    </Accordion.Item>
+
+    <Accordion.Item>
+      <Accordion.Toggle>Title</Accordion.Toggle>
+      <Accordion.Content>Content</Accordion.Content>
+    </Accordion.Item>
+  </Accordion>
+</main>

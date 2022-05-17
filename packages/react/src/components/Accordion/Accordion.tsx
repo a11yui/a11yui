@@ -1,11 +1,7 @@
 import { useEffect } from 'react';
 import { accordion } from '@a11yui/core';
-import { createClassString } from '@internal/utils';
+import { createClassString } from '@shared/utils';
 import { useForwardedRef } from '../../hooks';
-
-import Content from './Content';
-import Item from './Item';
-import Toggle from './Toggle';
 
 import './accordion.scss';
 
@@ -21,12 +17,12 @@ interface Props {
   multiselect?: boolean;
 }
 
-type AccordionComponentProps<C extends React.ElementType> =
+type AccordionProps<C extends React.ElementType> =
   PolymorphicComponentPropsWithRef<C, Props>;
 
-export const AccordionComponent = forwardRef(
+export const Accordion = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { as, className, multiselect, ...rest }: AccordionComponentProps<C>,
+    { as, className, multiselect, ...rest }: AccordionProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
     const Component = as || 'div';
@@ -58,8 +54,6 @@ export const AccordionComponent = forwardRef(
   },
 );
 
-AccordionComponent.displayName = 'Accordion';
-
-const Accordion = Object.assign(AccordionComponent, { Content, Item, Toggle });
+Accordion.displayName = 'Accordion';
 
 export default Accordion;
