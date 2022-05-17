@@ -1,3 +1,8 @@
+.a11y-tabs-list[aria-orientation="vertical"] {
+  display: inline-flex;
+  flex-direction: column;
+}
+
 .a11y-tabs-panel {
   display: none;
 

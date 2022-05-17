@@ -34,8 +34,9 @@ function on(el: Element) {
   const elements = el.querySelectorAll<HTMLElement>(focusableEls);
 
   if (elements.length === 0) {
-    throw Error(
-      'There should be at least one focusable element in the focus trap',
+    console.warn(
+      // eslint-disable-next-line max-len
+      'No focusable elements: There should be at least one focusable element in the focus trap',
     );
   }
 

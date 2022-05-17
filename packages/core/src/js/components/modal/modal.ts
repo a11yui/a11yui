@@ -142,7 +142,7 @@ function on(el: Element) {
   }
 
   // Inner elements that close the modal
-  const closeToggles = el.querySelectorAll(`[${CLOSE_MODAL}="true"]`);
+  const closeToggles = el.querySelectorAll(`[${CLOSE_MODAL}]`);
 
   // Event listeners for close elements in the modal
   for (let i = 0; i < closeToggles.length; i++) {
