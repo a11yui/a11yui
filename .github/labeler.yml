@@ -1,3 +1,7 @@
+@a11yui/angular:
+  - packages/angular/*
+  - packages/angular/**/*
+  
 @a11yui/core:
   - packages/core/*
   - packages/core/**/*
@@ -17,6 +21,10 @@
 @a11yui/web-components:
   - packages/web-components/*
   - packages/web-components/**/*
+
+@a11yui/wordpress-plugin:
+  - packages/wordpress-plugin/*
+  - packages/wordpress-plugin/**/*
 
 @shared/utils:
   - shared/utils/*
