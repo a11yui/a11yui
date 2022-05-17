@@ -1,3 +1,4 @@
+// Arrow key focus
 function tabFocus(e: Event, firstEl: HTMLElement, lastEl: HTMLElement) {
   const event = <KeyboardEvent>e;
 
@@ -16,6 +17,7 @@ function tabFocus(e: Event, firstEl: HTMLElement, lastEl: HTMLElement) {
   }
 }
 
+// HTML elements that can be focused
 const focusableEls = [
   '[contentEditable=true]',
   '[tabindex]',
@@ -30,6 +32,11 @@ const focusableEls = [
   .map((selector) => `${selector}:not([tabindex='-1'])`)
   .join(',');
 
+/**
+ * Initiate a focus trap
+ * @param el Element to add focus trap to
+ * @returns
+ */
 function on(el: Element) {
   const elements = el.querySelectorAll<HTMLElement>(focusableEls);
 
@@ -48,6 +55,11 @@ function on(el: Element) {
   el.addEventListener('keydown', (e: Event) => tabFocus(e, firstEl, lastEl));
 }
 
+/**
+ * Tear down focus trap
+ * @param el Focus trap element to teardown
+ * @returns
+ */
 function off(el: Element) {
   const elements = el.querySelectorAll<HTMLElement>(focusableEls);
 
@@ -57,6 +69,9 @@ function off(el: Element) {
   el.removeEventListener('keydown', (e: Event) => tabFocus(e, firstEl, lastEl));
 }
 
+/**
+ * Trap focus inside an element
+ */
 const focusTrap = {
   on,
   off,

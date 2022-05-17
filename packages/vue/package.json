@@ -8,10 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@a11yui/core": "workspace:*",
     "vue": "^3.2.25"
   },
   "devDependencies": {
-    "@a11yui/core": "workspace:^",
     "@vitejs/plugin-vue": "^2.3.1",
     "eslint-plugin-vue": "^8.7.1",
     "typescript": "^4.5.4",

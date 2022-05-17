@@ -1,0 +1,22 @@
+<script setup lang="ts">
+import { Accordion } from '@a11yui/vue';
+</script>
+
+<template>
+  <Accordion>
+    <Accordion.Item>
+      <Accordion.Toggle>Title</Accordion.Toggle>
+      <Accordion.Content>Content</Accordion.Content>
+    </Accordion.Item>
+
+    <Accordion.Item>
+      <Accordion.Toggle>Title</Accordion.Toggle>
+      <Accordion.Content>Content</Accordion.Content>
+    </Accordion.Item>
+
+    <Accordion.Item>
+      <Accordion.Toggle>Title</Accordion.Toggle>
+      <Accordion.Content>Content</Accordion.Content>
+    </Accordion.Item>
+  </Accordion>
+</template>

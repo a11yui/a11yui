@@ -1,0 +1,16 @@
+<script lang="ts">
+  import { Tabs } from '@a11yui/svelte';
+</script>
+
+<main>
+  <Tabs>
+    <Tabs.List>
+      <Tabs.Toggle>One</Tabs.Toggle>
+      <Tabs.Toggle>Two</Tabs.Toggle>
+      <Tabs.Toggle>Three</Tabs.Toggle>
+    </Tabs.List>
+    <Tabs.Panel>One content</Tabs.Panel>
+    <Tabs.Panel>Two content</Tabs.Panel>
+    <Tabs.Panel>Three content</Tabs.Panel>
+  </Tabs>
+</main>

@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { createClassString } from '@internal/utils';
+import { createClassString } from '@shared/utils';
 
 import type {
   PolymorphicComponentPropsWithRef,
@@ -28,7 +28,6 @@ export const TabsToggle = forwardRef(
           'a11y-tabs-toggle',
           className ? className : '',
         )}
-        data-tabs-toggle
       />
     );
   },

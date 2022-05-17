@@ -5,7 +5,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:a11yui/a11yui.git",
-    "directory": "packages/@a11yui-react"
+    "directory": "packages/react"
   },
   "files": [
     "dist"
@@ -30,7 +30,7 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@internal/utils": "workspace:*",
+    "@shared/utils": "workspace:*",
     "@testing-library/react": "^13.2.0",
     "@types/jest": "^27.5.1",
     "@types/react": "^18.0.0",
