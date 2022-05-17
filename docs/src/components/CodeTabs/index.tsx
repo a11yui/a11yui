@@ -1,4 +1,5 @@
 import React from 'react';
+import CodeBlock from '@theme/CodeBlock';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -23,16 +24,16 @@ export default function CodeTabs({
         {children}
       </TabItem>
       <TabItem value="js" label="JS">
-        {js}
+        <CodeBlock language="js">{js}</CodeBlock>
       </TabItem>
       <TabItem value="react" label="React">
-        {react}
+        <CodeBlock language="jsx">{react}</CodeBlock>
       </TabItem>
       <TabItem value="svelte" label="Svelte">
-        {svelte}
+        <CodeBlock language="html">{svelte}</CodeBlock>
       </TabItem>
       <TabItem value="vue" label="Vue">
-        {vue}
+        <CodeBlock language="html">{vue}</CodeBlock>
       </TabItem>
     </Tabs>
   );

@@ -1,12 +1,16 @@
 import CodeTabs from '@site/src/components/CodeTabs';
 import { Accordion } from '@a11yui/react';
+import Example from '@site/examples/accordion';
+import ReactExample from '!!raw-loader!@site/examples/accordion';
+import SvelteExample from '!!raw-loader!@site/examples/accordion/svelte.txt';
+import VueExample from '!!raw-loader!@site/examples/accordion/vue.txt';
 
 # Accordion
 
 <CodeTabs
-  js="Content"
+  react={ReactExample}
+  svelte={SvelteExample}
+  vue={VueExample}
 >
-  <Accordion>
-    <Accordion.Item></Accordion.Item>
-  </Accordion>
+  <Example />
 </CodeTabs>

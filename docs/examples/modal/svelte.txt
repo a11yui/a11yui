@@ -1,0 +1,16 @@
+<script lang="ts">
+  import { Modal } from '@a11yui/svelte';
+</script>
+
+<main>
+  <button aria-controls="modal">
+    Modal
+  </button>
+
+  <Modal id="modal">
+    <Modal.Heading>Title</Modal.Heading>
+    <Modal.Content>
+      <button data-modal-close>Cancel</button>
+    </Modal.Content>
+  </Modal>
+</main>
