@@ -5,7 +5,10 @@ const UP = 'ArrowUp';
 const RIGHT = 'ArrowRight';
 const DOWN = 'ArrowDown';
 
-function toggle(activate: Element, deactivate: Element) {
+function toggle(event: KeyboardEvent, activate: Element, deactivate: Element) {
+  event.stopImmediatePropagation();
+  event.preventDefault();
+
   activate.setAttribute('aria-selected', 'true');
   activate.setAttribute('tabindex', '0');
 
@@ -13,7 +16,7 @@ function toggle(activate: Element, deactivate: Element) {
   deactivate.setAttribute('tabindex', '-1');
 }
 
-function keydown(e: Event, root: Element, toggles: NodeListOf<Element>) {
+function keydown(e: Event, root: Element, toggleProp: string) {
   const event = <KeyboardEvent>e;
 
   // Elements
@@ -22,6 +25,11 @@ function keydown(e: Event, root: Element, toggles: NodeListOf<Element>) {
 
   if (!current) return;
 
+  const toggles = root.querySelectorAll(toggleProp);
+
+  // No need if one toggle
+  if (toggles.length <= 1) return;
+
   const currentIndex = Array.prototype.indexOf.call(toggles, current);
 
   if (currentIndex < 0) return;
@@ -29,28 +37,27 @@ function keydown(e: Event, root: Element, toggles: NodeListOf<Element>) {
   const firstToggle = toggles[0];
   const lastToggle = toggles[toggles.length - 1];
   const prevToggle =
+    currentIndex !== 0 ? toggles[currentIndex - 1] : lastToggle;
+  const nextToggle =
     currentIndex !== toggles.length - 1
       ? toggles[currentIndex + 1]
       : firstToggle;
-  const nextToggle =
-    currentIndex !== 0 ? toggles[currentIndex - 1] : lastToggle;
 
-  if (orientation === 'vertical') {
-    if (event.key === UP) {
-      toggle(prevToggle, current);
-      event.preventDefault();
-    } else if (event.key === DOWN) {
-      toggle(nextToggle, current);
-      event.preventDefault();
-    }
-  } else {
-    if (event.key === LEFT) {
-      toggle(prevToggle, current);
-      event.preventDefault();
-    } else if (event.key === RIGHT) {
-      toggle(nextToggle, current);
-      event.preventDefault();
-    }
+  switch (event.key) {
+    case UP:
+      if (orientation === 'vertical') toggle(event, prevToggle, current);
+      break;
+    case DOWN:
+      if (orientation === 'vertical') toggle(event, nextToggle, current);
+      break;
+    case LEFT:
+      if (orientation === 'horizontal') toggle(event, prevToggle, current);
+      break;
+    case RIGHT:
+      if (orientation === 'horizontal') toggle(event, nextToggle, current);
+      break;
+    default:
+      break;
   }
 }
 
@@ -68,12 +75,7 @@ function on(root: Element, toggleProp: string) {
   // If no orientation is specified, return
   if (!orientation || !['vertical', 'horizontal'].includes(orientation)) return;
 
-  const toggles = root.querySelectorAll(toggleProp);
-
-  // No need if one toggle
-  if (toggles.length <= 1) return;
-
-  root.addEventListener('keydown', (e) => keydown(e, root, toggles));
+  root.addEventListener('keydown', (e) => keydown(e, root, toggleProp));
 }
 
 /**
@@ -90,16 +92,7 @@ function off(root: Element, toggleProp: string) {
   // If no orientation is specified, return
   if (!orientation || !['vertical', 'horizontal'].includes(orientation)) return;
 
-  const toggles = root.querySelectorAll(toggleProp);
-
-  // No need if one toggle
-  if (toggles.length <= 1) return;
-
-  for (let i = 0; i < toggles.length; i++) {
-    const el = toggles[i];
-
-    el.removeEventListener('keydown', (e) => keydown(e, root, toggles));
-  }
+  root.removeEventListener('keydown', (e) => keydown(e, root, toggleProp));
 }
 
 /**
