@@ -10,7 +10,7 @@ interface Props {
   className?: string;
 }
 
-type TabsPanelProps<C extends React.ElementType> =
+export type TabsPanelProps<C extends React.ElementType> =
   PolymorphicComponentPropsWithRef<C, Props>;
 
 export const TabsPanel = forwardRef(

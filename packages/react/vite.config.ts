@@ -8,7 +8,9 @@ export default defineConfig({
   plugins: [
     dts({
       insertTypesEntry: true,
-      copyDtsFiles: false,
+      logDiagnostics: true,
+      noEmitOnError: true,
+      skipDiagnostics: false,
     }),
     react(),
   ],

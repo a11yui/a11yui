@@ -10,7 +10,7 @@ interface Props {
   className?: string;
 }
 
-type AccordionToggleProps<C extends React.ElementType> =
+export type AccordionToggleProps<C extends React.ElementType> =
   PolymorphicComponentPropsWithRef<C, Props>;
 
 export const AccordionToggle = forwardRef(

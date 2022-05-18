@@ -15,10 +15,8 @@ interface Props {
   forceAction?: boolean;
 }
 
-type ModalProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<
-  C,
-  Props
->;
+export type ModalProps<C extends React.ElementType> =
+  PolymorphicComponentPropsWithRef<C, Props>;
 
 export const Modal = forwardRef(
   <C extends React.ElementType = 'div'>(

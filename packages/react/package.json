@@ -21,8 +21,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc",
-    "preview": "vite preview"
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
   },
   "dependencies": {
     "@a11yui/core": "workspace:*",

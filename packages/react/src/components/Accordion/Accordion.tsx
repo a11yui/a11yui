@@ -1,11 +1,9 @@
-import { useEffect } from 'react';
+import { forwardRef, useEffect } from 'react';
 import { accordion } from '@a11yui/core';
 import { createClassString } from '@shared/utils';
 import { useForwardedRef } from '../../hooks';
 
 import './accordion.scss';
-
-import { forwardRef } from 'react';
 
 import type {
   PolymorphicComponentPropsWithRef,
@@ -17,7 +15,7 @@ interface Props {
   multiselect?: boolean;
 }
 
-type AccordionProps<C extends React.ElementType> =
+export type AccordionProps<C extends React.ElementType> =
   PolymorphicComponentPropsWithRef<C, Props>;
 
 export const Accordion = forwardRef(

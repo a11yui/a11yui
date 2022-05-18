@@ -10,7 +10,7 @@ interface Props {
   className?: string;
 }
 
-type AccordionContentProps<C extends React.ElementType> =
+export type AccordionContentProps<C extends React.ElementType> =
   PolymorphicComponentPropsWithRef<C, Props>;
 
 export const AccordionContent = forwardRef(

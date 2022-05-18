@@ -11,7 +11,7 @@ interface Props {
   vertical?: boolean;
 }
 
-type TabsListProps<C extends React.ElementType> =
+export type TabsListProps<C extends React.ElementType> =
   PolymorphicComponentPropsWithRef<C, Props>;
 
 export const TabsList = forwardRef(

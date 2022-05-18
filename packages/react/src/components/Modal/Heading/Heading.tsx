@@ -10,7 +10,7 @@ interface Props {
   className?: string;
 }
 
-type ModalHeadingProps<C extends React.ElementType> =
+export type ModalHeadingProps<C extends React.ElementType> =
   PolymorphicComponentPropsWithRef<C, Props>;
 
 export const ModalHeading = forwardRef(

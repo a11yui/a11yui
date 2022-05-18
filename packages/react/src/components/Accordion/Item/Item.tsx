@@ -11,7 +11,7 @@ interface Props {
   expanded?: boolean;
 }
 
-type AccordionItemProps<C extends React.ElementType> =
+export type AccordionItemProps<C extends React.ElementType> =
   PolymorphicComponentPropsWithRef<C, Props>;
 
 export const AccordionItem = forwardRef(

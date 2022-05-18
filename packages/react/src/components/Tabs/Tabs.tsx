@@ -14,10 +14,8 @@ interface Props {
   className?: string;
 }
 
-type TabsProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<
-  C,
-  Props
->;
+export type TabsProps<C extends React.ElementType> =
+  PolymorphicComponentPropsWithRef<C, Props>;
 
 export const Tabs = forwardRef(
   <C extends React.ElementType = 'div'>(
