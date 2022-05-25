@@ -1,1 +1,1 @@
-export { default as default } from './Heading.vue'
+export { default as default } from './Heading.vue';
